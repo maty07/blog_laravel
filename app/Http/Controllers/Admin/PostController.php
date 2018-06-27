@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Post;
-use App\Http\Requests\PostStoreRequest;
-use App\Http\Requests\PostUpdateRequest;
 use App\Category;
 use App\Tag;
+use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\PostUpdateRequest;
+
 
 class PostController extends Controller
 {
@@ -38,6 +40,16 @@ class PostController extends Controller
     public function store(PostStoreRequest $request)
     {
         $post = Post::create($request->all());
+
+        //IMAGE
+         $file = $request->file('file');
+
+            $path = Storage::disk('public')->put('img', $file);
+            $post->fill(['file' => asset($path)])->save();
+
+
+        //TAGS
+        $post->tags()->sync($request->get('tags'));
 
         return redirect()->route('posts.edit', $post->id)
                     ->with('success', 'Entrada creada existosamente');

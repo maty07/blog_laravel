@@ -12,7 +12,7 @@
 				</div>
 
 				<div class="panel-body">
-					<form action="{{ route('posts.store') }}" method="POST">
+					<form action="{{ route('posts.store') }}" method="POST" enctype="multipart/formdata" >
 						{{ csrf_field() }}
 						<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 						<div class="form-group">
@@ -56,7 +56,7 @@
 						</div>
 						<div class="form-group">
 							<label>Descripción</label>
-							<textarea name="body" class="form-control" rows="6"></textarea>
+							<textarea name="body" id="body" class="form-control" rows="6"></textarea>
 						</div>
 						<div>
 							<input type="submit" name="save-post" class="btn btn-sm btn-primary">
@@ -78,6 +78,8 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/speakingurl/14.0.1/speakingurl.min.js"></script>﻿
 <script src="{{ asset('vendor/stringToSlug/jquery.stringtoslug.min.js') }}"></script>
+<script src="{{ asset('vendor/ckeditor5/ckeditor.js') }}"></script>
+<script src="{{ asset('vendor/ckeditor5/translations/es.js') }}"></script>
 <script>
 	$(function(){
 		$('#name, #slug').stringToSlug({
@@ -85,10 +87,20 @@
 				$('#slug').val(text);
 			}
 		});	
-
-		$('#category_id').change(function(){
-			alert('#category_id').val();
-		});	
 	});
+
+	ClassicEditor
+	.create(document.querySelector( '#body' ),{
+		language: 'es',
+		height: 400
+	})
+	.then( editor => {
+        console.log( editor );
+    })
+    .catch( error => {
+        console.error( error );
+    });
+    
+
 </script>
 @endsection

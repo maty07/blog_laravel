@@ -12,9 +12,9 @@
 					{{ $post->name }}
 				</div>
 				<div class="panel-body">
-					@if($post->file)
+					<!-- @if($post->file)-->
 							<img src=" {{ $post->file }}" class="img-responsive">
-					@endif
+					<!--@endif -->
 					{{ $post->excerpt }}
 					<a href=" {{ route('post', $post->slug) }} " class="pull-right">Leer más</a>
 				</div>

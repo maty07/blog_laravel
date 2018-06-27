@@ -60,7 +60,7 @@
 
 						<div class="form-group">
 							<label>Descripción</label>
-							<textarea name="body" class="form-control" rows="6">{{ $post->body }}</textarea>
+							<textarea name="body" id="body" class="form-control" rows="6">{{ $post->body }}</textarea>
 						</div>
 						<div>
 							<input type="submit" name="edit-post" class="btn btn-sm btn-primary">
@@ -78,6 +78,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/speakingurl/14.0.1/speakingurl.min.js"></script>﻿
 <script src="{{ asset('vendor/stringToSlug/jquery.stringtoslug.min.js') }}"></script>
+<script src="{{ asset('vendor/ckeditor5/ckeditor.js') }}"></script>
 <script>
 	$(function(){
 		$('#name, #slug').stringToSlug({
@@ -90,5 +91,16 @@
 			alert($('#category_id').val());
 		});	
 	});
+
+	ClassicEditor
+	.create(document.querySelector( '#body' ),{
+		languaje: 'es'
+	})
+	.then( editor => {
+        console.log( editor );
+    })
+    .catch( error => {
+        console.error( error );
+    });
 </script>
 @endsection
