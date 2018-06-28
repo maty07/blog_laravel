@@ -12,7 +12,7 @@
 				</div>
 
 				<div class="panel-body">
-					<form action="{{ route('posts.store') }}" method="POST" enctype="multipart/formdata" >
+					<form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data" >
 						{{ csrf_field() }}
 						<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 						<div class="form-group">

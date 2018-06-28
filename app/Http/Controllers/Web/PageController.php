@@ -40,33 +40,8 @@ class PageController extends Controller
         return view('web.posts', compact('posts'));
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
+   public function searchPost(Request $request)
+   {
+       
+   }
 }

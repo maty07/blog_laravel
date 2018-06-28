@@ -20,15 +20,14 @@
 				</div>
 			</div>
 		@endforeach
-		{{ $posts->links() }}
 	</div>
 	<div class="col-md-4">
-			<div>
-				<form class="form-inline">
-					<input type="search" name="search" class="form-control" placeholder="Buscar Entrada..">
-					<input type="submit" class="btn btn-sm btn-success" value="Buscar">
-				</form>
-			</div>
+		<div>
+			<form class="form-inline">
+				<input type="search" name="search" class="form-control" placeholder="Buscar Entrada..">
+				<input type="submit" name="btn_search" class="btn btn-sm btn-success" value="Buscar">
+			</form>
+		</div>
 	</div>
 </div>
 

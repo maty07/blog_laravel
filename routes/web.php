@@ -26,4 +26,6 @@ Route::resource('tags', 'Admin\TagController');
 Route::resource('categories', 'Admin\CategoryController');
 Route::resource('posts', 'Admin\PostController');
 
+Route::get('entradas', 'Web\PageController@searchPost')->name('search');
+
 

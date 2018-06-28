@@ -12,7 +12,7 @@
 				</div>
 
 				<div class="panel-body">
-					<form action="{{ route('posts.update', $post->id) }}" method="POST">
+					<form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
 						{{ csrf_field() }}
 						<input type="hidden" name="_method" value="PUT">
 						<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
@@ -37,7 +37,7 @@
 						</div>
 						<div class="form-group">
 							<label>Imagen</label>
-							<input type="file" name="file" class="form-control">
+							<input type="file" name="file" class="form-control" value="{{ $post->file }}">
 						</div>
 						<div class="form-group">
 							<label>Estado&nbsp;&nbsp;</label>
@@ -55,7 +55,7 @@
 						</div>
 						<div class="form-group">
 							<label>Extracto</label>
-							<textarea name="excerpt" class="form-control" rows="2"></textarea>
+							<textarea name="excerpt" class="form-control" rows="2">{{ $post->excerpt }}</textarea>
 						</div>
 
 						<div class="form-group">

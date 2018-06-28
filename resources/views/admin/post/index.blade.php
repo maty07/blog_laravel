@@ -17,7 +17,7 @@
 							<tr>
 								<th width="10px">ID</th>
 								<th>Nombre</th>
-								<th colspan="3">&nbsp;</th>
+								<th colspan="2">&nbsp;</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -25,9 +25,6 @@
 							<tr>
 								<td>{{ $post->id }}</td>
 								<td>{{ $post->name }}</td>
-								<td width="10px">
-									<a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-default">Ver</a>
-								</td>
 								<td width="10px">
 									<a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-warning">Editar</a>
 								</td>
